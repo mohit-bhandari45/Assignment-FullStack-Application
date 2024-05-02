@@ -74,7 +74,7 @@ const Login = () => {
           </div>
           <button className='bg-[#474eb6] px-6 py-3 text-lg rounded-xl font-bold w-[95%]' type="submit">LOGIN</button>
         </div>
-        <div className='text-lg px-3 py-4'>Don't have an account?<Link className='text-blue-300 pl-2' to="/register">Register</Link></div>
+        <div className='text-lg px-3 py-4'>Don't have an account?<Link className='text-blue-300 pl-2' to="/">Register</Link></div>
       </form>
       <ToastContainer />
     </div>

@@ -18,7 +18,7 @@ const Register = () => {
     const [checked, setchecked] = useState(false)
 
     useEffect(() => {
-        if(values.username.length>3 && values.password.length >=8 && checked & values.password===values.confirmPassword && values.email.length>0){
+        if(checked){
             setbool(false)
         }else{
             setbool(true)

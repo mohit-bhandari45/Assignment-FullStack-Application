@@ -1,6 +1,3 @@
-![alt text](image.png)
-
-
 # Project Overview
 
  This is a simple single page Full Stack Application (React+Nodejs) made by me. The Features of this app are:-
@@ -25,7 +22,7 @@ cd Assignment-FullStack-Application
 ### **ENV Variables**
 ```
 PORT=3000
-MONGO_URI="http://localhost:3000/users"
+MONGO_URI="http://localhost:21713/users"
 ```
 
 ### **Adding data to MONGO_URI**
