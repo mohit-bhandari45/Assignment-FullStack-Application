@@ -36,12 +36,12 @@ const Login = () => {
         }),
       })
       let b = await a.json()
-      console.log(b)
+      // console.log(b)
       if (b.status === false) {
         toast.error(b.msg, toastoptions)
       }
       if (b.status === true) {
-        navigate("/")
+        navigate("/posts")
       }
     }
   }

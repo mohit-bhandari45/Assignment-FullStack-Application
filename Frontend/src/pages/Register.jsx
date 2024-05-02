@@ -54,7 +54,7 @@ const Register = () => {
                 toast.error(b.msg, toastoptions)
             }
             if (b.status === true) {
-                navigate("/")
+                navigate("/posts")
             }
         }
         console.log(values)

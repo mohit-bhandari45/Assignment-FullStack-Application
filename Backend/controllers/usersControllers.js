@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt")
 const { v4: uuidv4 } = require("uuid")
 const { setUser } = require("../service/auth")
 const nodemailer=require("nodemailer")
+const Post=require("../models/postModel.js")
 
 
 const registerRoute = async (req, res) => {
@@ -92,13 +93,47 @@ const loginRoute = async (req, res) => {
             return res.json({ msg: "Incorrect username or password", status: false })
         }
         const token = setUser(user)
-        res.cookie("uid", token)
-        console.log(token)
+        res.cookie('uid', token, {expires: new Date(Date.now() + 9999999),httpOnly: false})
         delete user.password;
         return res.json({ status: true, user })
+
     } catch (error) {
         console.log(error)
     }
 }
 
-module.exports = { registerRoute, loginRoute }
+const postsRoute=async (req, res) => {
+    let total=await Post.find({})
+    let size=total.length;
+    function generateRandomString(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+    
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            result += characters.charAt(randomIndex);
+        }
+    
+        return result;
+    }
+    
+    // Example usage:
+    await Post.create({
+        title:`Post ${size+1}`,
+        tagline:generateRandomString(40),
+        body:generateRandomString(80),
+    })
+    let posts=await Post.find({})
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = posts.length;
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    const paginatedPosts = posts.slice(startIndex, endIndex);
+
+    setTimeout(() => {
+        res.json({ posts: paginatedPosts });
+    }, 500);
+}
+
+module.exports = { registerRoute, loginRoute,postsRoute }

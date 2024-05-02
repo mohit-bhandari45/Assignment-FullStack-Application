@@ -8,7 +8,7 @@ import Login from './pages/Login.jsx'
 
 const router=createBrowserRouter([
   {
-    path:"/register",
+    path:"/",
     element:<Register/>
   },
   {
@@ -16,7 +16,7 @@ const router=createBrowserRouter([
     element:<Login/>
   },
   {
-    path:"/",
+    path:"/posts",
     element:<App/>
   }
 ])

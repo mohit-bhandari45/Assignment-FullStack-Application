@@ -8,11 +8,15 @@ function setUser(user){
     },secret)
 }
 
-function getUser(id){
+function getUser(token){
     if(!token){
         return null;
     }
-    return jwt.verify(token,secret)
+    try {
+        return jwt.verify(token,secret)
+    } catch (error) {
+        return null;
+    }
 }
 
 module.exports={
