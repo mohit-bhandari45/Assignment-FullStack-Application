@@ -36,6 +36,7 @@ const Login = () => {
         }),
       })
       let b = await a.json()
+      console.log(b)
       if (b.status === false) {
         toast.error(b.msg, toastoptions)
       }
@@ -43,7 +44,6 @@ const Login = () => {
         navigate("/")
       }
     }
-    console.log(values)
   }
 
   const handleValidation = () => {
