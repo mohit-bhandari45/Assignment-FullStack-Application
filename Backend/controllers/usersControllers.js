@@ -31,14 +31,14 @@ const registerRoute = async (req, res) => {
             port: 587, // Port for SMTP (usually 465)
             secure: false, // Usually true if connecting to port 465
             auth: {
-                user: "ecohaul8@gmail.com", // Your email address
+                user: process.env.EMAIL, // Your email address
                 pass: process.env.PASS, // Password (for gmail, your app password)
             },
         });
         const mailOptions = {
             from: {
                 name: "ABC limited",
-                address: "ecohaul8@gmail.com",
+                address: process.env.EMAIL,
             },
             to: email,
             subject: "Welcome to our website",
