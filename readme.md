@@ -23,11 +23,17 @@ cd Assignment-FullStack-Application
 ```
 PORT=3000
 MONGO_URI="http://localhost:21713/users"
+EMAIL=""
+PASS=""
 ```
 
 ### **Adding data to MONGO_URI**
 You have to set you local host instance in you local device
 The Sample uri is given above
+
+### **Adding data to EMAIL and PASS**
+You have to set you email from which the welcome email need to be send
+Also findout the app password for your sender's email and set that password to PASS parameter in env file
 
 ### **Frontend and Backend run**
 
